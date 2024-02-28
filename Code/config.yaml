@@ -17,4 +17,4 @@ OUTPUT_PATH:
   8: ../Output/8
 
 FILE_FORMAT:
-  Output: parquet
+  Output: csv

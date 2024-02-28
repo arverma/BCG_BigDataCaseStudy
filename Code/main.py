@@ -170,12 +170,12 @@ if __name__ == '__main__':
         .appName("USVehicleAccidentAnalysis") \
         .getOrCreate()
 
-    config_file_path = "config.yaml"
+    config_file_name = "config.yaml"
     spark.sparkContext.setLogLevel("ERROR")
 
-    usvaa = USVehicleAccidentAnalysis(config_file_path)
-    output_file_paths = utils.read_yaml(config_file_path).get("OUTPUT_PATH")
-    file_format = utils.read_yaml(config_file_path).get("FILE_FORMAT")
+    usvaa = USVehicleAccidentAnalysis(config_file_name)
+    output_file_paths = utils.read_yaml(config_file_name).get("OUTPUT_PATH")
+    file_format = utils.read_yaml(config_file_name).get("FILE_FORMAT")
 
     # 1. Find the number of crashes (accidents) in which number of persons killed are male?
     print("1. Result:", usvaa.count_male_accidents(output_file_paths.get(1), file_format.get("Output")))
