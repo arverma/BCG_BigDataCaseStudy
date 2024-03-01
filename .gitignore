@@ -3,7 +3,7 @@
 .idea/
 dist
 Data
-output
+Output
 bcg.egg-info
 build
 __pycache__/
