@@ -35,6 +35,9 @@ Application should perform below analysis and store the results for each analysi
 ### Runbook
 Clone the repo and follow these steps:
 1. Go to the Project Directory: `$ cd BCG_Big_Data_Case_Study`
-2. On terminal, run `$ make build`. This will build the project to run via spark-submit. In this process a new folder with 
-   name "dist" is created, and the code artefacts are copied into it.
-3. `$ cd Dist && spark-submit --master "local[*]" --py-files src.zip --files config.yaml main.py && cd ..`
+2. On terminal, run `$ make help` to know what all functions are available
+3. `make build`
+4. Spark Submit
+   ```commandline
+    spark-submit --master "local[*]" --py-files dist/bcg-0.0.1-py3.9.egg main.py
+   ```

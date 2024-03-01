@@ -108,7 +108,7 @@ class USVehicleAccidentAnalysis:
         df.show(truncate=False)
 
     def get_top_5_zip_codes_with_alcohols_as_cf_for_crash(
-            self, output_path, output_format
+        self, output_path, output_format
     ):
         """
         Finds top 5 Zip Codes with the highest number crashes with alcohols as the contributing factor to a crash
@@ -144,20 +144,20 @@ class USVehicleAccidentAnalysis:
             self.df_damages.join(self.df_units, on=["CRASH_ID"], how="inner")
             .filter(
                 (
-                        (self.df_units.VEH_DMAG_SCL_1_ID > "DAMAGED 4")
-                        & (
-                            ~self.df_units.VEH_DMAG_SCL_1_ID.isin(
-                                ["NA", "NO DAMAGE", "INVALID VALUE"]
-                            )
+                    (self.df_units.VEH_DMAG_SCL_1_ID > "DAMAGED 4")
+                    & (
+                        ~self.df_units.VEH_DMAG_SCL_1_ID.isin(
+                            ["NA", "NO DAMAGE", "INVALID VALUE"]
                         )
+                    )
                 )
                 | (
-                        (self.df_units.VEH_DMAG_SCL_2_ID > "DAMAGED 4")
-                        & (
-                            ~self.df_units.VEH_DMAG_SCL_2_ID.isin(
-                                ["NA", "NO DAMAGE", "INVALID VALUE"]
-                            )
+                    (self.df_units.VEH_DMAG_SCL_2_ID > "DAMAGED 4")
+                    & (
+                        ~self.df_units.VEH_DMAG_SCL_2_ID.isin(
+                            ["NA", "NO DAMAGE", "INVALID VALUE"]
                         )
+                    )
                 )
             )
             .filter(self.df_damages.DAMAGED_PROPERTY == "NONE")
