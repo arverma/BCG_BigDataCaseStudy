@@ -30,4 +30,6 @@ def write_output(df, file_path, write_format):
     :return: None
     """
     # df = df.coalesce(1)
-    df.repartition(1).write.format(write_format).mode('overwrite').option("header", "true").save(file_path)
+    df.repartition(1).write.format(write_format).mode("overwrite").option(
+        "header", "true"
+    ).save(file_path)
