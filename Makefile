@@ -10,7 +10,7 @@ for line in sys.stdin:
 endef
 export PRINT_HELP_PYSCRIPT
 
-help: ## Get list of make commands (default target)
+help: ## Get list of make commands to build and run this job
 	@printf -- "Make commands for BCG case Study\n"
 	@python3 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
@@ -23,8 +23,6 @@ remove_unwanted_files: ## Remove unwanted dir that got created as a side effect 
 	rm -rf *.egg-info
 
 build: remove_unwanted_files ## Packages all the python packages(each jobs and utils) in a single `.egg` file.
-	rm -rf dist
-	rm -rf *.egg-info
 	/usr/bin/python3 setup.py bdist_egg
 	rm -rf build
 	rm -rf *.egg-info
